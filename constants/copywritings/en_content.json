@@ -1,0 +1,207 @@
+{
+  "navigation": {
+    "logo": "Orbanas",
+    "links": [
+      { "label": "Services", "href": "#services" },
+      { "label": "About", "href": "#about" },
+      { "label": "Results", "href": "#results" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "cta": "Get Started"
+  },
+  "hero": {
+    "headline": {
+      "primary": "Stop Managing 12 Different Vendors.",
+      "secondary": "Start Growing Your Business with Orbanas."
+    },
+    "subheadline": "The only Saudi partner that delivers Aramco compliance, cloud migration, and cybersecurity under one roof",
+    "hook": "From compliance chaos to digital excellence - in one partnership",
+    "cta": {
+      "primary": "Get Your Free Assessment",
+      "secondary": "See Our Solutions"
+    },
+    "badges": [
+      "12 Divisions Under One Roof",
+      "ISO Certified & Aramco Approved", 
+      "24/7 Saudi-Based Support"
+    ]
+  },
+  "about": {
+    "title": "We Don't Just Work in Saudi Arabia - We ARE Saudi Arabia",
+    "subtitle": "While international companies fail here, we deliver because we understand the Saudi way of business",
+    "description": "Every Saudi CEO faces the same nightmare. Managing multiple vendors who can't coordinate, point fingers when things fail, and don't understand local regulations. Orbanas solves this with 12 integrated divisions under one roof.",
+    "features": [
+      {
+        "title": "Single Source Solution",
+        "description": "One partnership for everything from Aramco compliance to digital transformation"
+      },
+      {
+        "title": "Saudi Market Expertise", 
+        "description": "Deep understanding of local regulations, culture, and business practices"
+      },
+      {
+        "title": "Integrated Delivery",
+        "description": "All divisions work together - no finger-pointing, no coordination headaches"
+      }
+    ]
+  },
+  "services": {
+    "title": "12 Divisions, Infinite Possibilities",
+    "subtitle": "Stop playing vendor roulette. Get enterprise-grade solutions across every business function.",
+    "grid": [
+      {
+        "id": "iso-compliance",
+        "title": "ISO & Compliance",
+        "hook": "Win Aramco Contracts While Competitors Wait for Approvals",
+        "description": "Fast-track your certification, unlock bigger opportunities",
+        "services": ["Aramco CCC/CCC+", "ISO 9001, 27001, 45001", "Gap Analysis", "Audit Support"],
+        "icon": "shield-check"
+      },
+      {
+        "id": "cloud-microsoft",
+        "title": "Cloud & Microsoft Solutions",
+        "hook": "Microsoft Done Right - No Downtime, No Drama",
+        "description": "Seamless transitions that boost productivity from day one",
+        "services": ["Microsoft 365 Migration", "Azure Infrastructure", "DevOps Pipelines", "24/7 Support"],
+        "icon": "cloud"
+      },
+      {
+        "id": "erp-solutions",
+        "title": "Enterprise ERP Solutions", 
+        "hook": "ERP That Actually Speeds Up Your Business",
+        "description": "Systems that work like your business thinks",
+        "services": ["Dynamics 365", "SAP Ariba", "Oracle Fusion", "Custom Integration"],
+        "icon": "database"
+      },
+      {
+        "id": "cybersecurity",
+        "title": "Cybersecurity Solutions",
+        "hook": "Sleep Soundly - Saudi Hackers Can't Touch You",
+        "description": "Complete protection that turns your team into your strongest firewall",
+        "services": ["Endpoint Protection", "Email Security", "Penetration Testing", "Security Training"],
+        "icon": "shield"
+      },
+      {
+        "id": "network-infrastructure",
+        "title": "Network & Infrastructure",
+        "hook": "Infrastructure So Reliable, You'll Forget It Exists", 
+        "description": "Built for Saudi conditions, designed for Saudi growth",
+        "services": ["Cisco & Aruba Networks", "Data Centers", "Fortinet Security", "Backup Systems"],
+        "icon": "network"
+      },
+      {
+        "id": "smart-security",
+        "title": "Smart Security & Surveillance",
+        "hook": "See Everything, Secure Everything, From Anywhere",
+        "description": "AI-powered surveillance that integrates with Saudi regulations",
+        "services": ["CCTV & IP Surveillance", "Access Control", "RFID Systems", "Face Recognition"],
+        "icon": "camera"
+      },
+      {
+        "id": "web-digital",
+        "title": "Web & Digital Services",
+        "hook": "Digital Presence That Converts Saudi Customers",
+        "description": "Websites and campaigns designed for Saudi consumer behavior",
+        "services": ["E-commerce Platforms", "Mobile Apps", "SEO Optimization", "Social Media"],
+        "icon": "globe"
+      },
+      {
+        "id": "general-trading",
+        "title": "General Trading",
+        "hook": "From IT Hardware to Premium Products",
+        "description": "Global sourcing, local delivery at unbeatable rates",
+        "services": ["IT Equipment", "Office Supplies", "FMCG Products", "Consumer Electronics"],
+        "icon": "package"
+      },
+      {
+        "id": "hr-manpower",
+        "title": "HR & Manpower Supply",
+        "hook": "The Right Talent, At the Right Time",
+        "description": "Technical experts vetted for Saudi market demands",
+        "services": ["IT Specialists", "Skilled Labor", "Administrative Staff", "Temporary Staffing"],
+        "icon": "users"
+      },
+      {
+        "id": "facility-support",
+        "title": "Facility & Corporate Support",
+        "hook": "Focus on Growth While We Handle Everything Else",
+        "description": "Complete operational support for your peace of mind",
+        "services": ["Facility Management", "Corporate Training", "Logistics", "Event Management"],
+        "icon": "building"
+      },
+      {
+        "id": "marketing-branding",
+        "title": "Marketing & Branding",
+        "hook": "Brand Identity That Speaks Fluent Saudi",
+        "description": "Bilingual branding that resonates with local and international audiences",
+        "services": ["Corporate Identity", "Logo Development", "Presentations", "Video Production"],
+        "icon": "paintbrush"
+      }
+    ]
+  },
+  "integration": {
+    "title": "Why Our Clients Choose Integration Over Vendor Chaos",
+    "subtitle": "What happens when all 12 divisions work together for your success",
+    "story": {
+      "challenge": "Riyadh manufacturer needed Aramco compliance, ERP modernization, and cybersecurity before critical contract deadline",
+      "solution": "While competitors required 6 vendors and 12 months, our integrated approach delivered everything in 4 months",
+      "result": "Won major Aramco contract, reduced costs by 35%, achieved ISO certification ahead of schedule"
+    }
+  },
+  "stats": {
+    "title": "Numbers That Speak Louder Than Promises",
+    "subtitle": "Real results for real Saudi businesses",
+    "metrics": [
+      {
+        "value": "12+",
+        "label": "Integrated Divisions",
+        "description": "Everything under one roof"
+      },
+      {
+        "value": "500+", 
+        "label": "Saudi Companies Served",
+        "description": "Across all major cities"
+      },
+      {
+        "value": "99.9%",
+        "label": "System Uptime",
+        "description": "Reliable infrastructure"
+      },
+      {
+        "value": "24/7",
+        "label": "Saudi-Based Support", 
+        "description": "Always here when you need us"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Stop Playing Vendor Roulette?",
+    "subtitle": "Get Your Free Business Assessment",
+    "hook": "In 30 minutes, we'll show you exactly how to solve your 3 biggest business challenges",
+    "urgency": "Limited to 10 Saudi companies per month",
+    "buttons": {
+      "primary": "Book Your Assessment",
+      "secondary": "Call Now: +966 XX XXX XXXX"
+    },
+    "guarantee": "If we can't identify at least 3 ways to improve your operations, the assessment is free",
+    "location": "Orbanas Headquarters, Dammam - Where Saudi success stories begin"
+  },
+  "footer": {
+    "tagline": "From compliance to cloud, we build Saudi success stories",
+    "address": "Dammam, Saudi Arabia",
+    "email": "hello@orbanas.sa",
+    "divisions": [
+      "ISO & Compliance",
+      "Cloud Solutions", 
+      "ERP Systems",
+      "Cybersecurity",
+      "Infrastructure",
+      "Smart Security",
+      "Web & Digital",
+      "Trading",
+      "HR & Manpower",
+      "Facility Support",
+      "Marketing"
+    ]
+  }
+}
