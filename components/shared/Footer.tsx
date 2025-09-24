@@ -16,6 +16,7 @@ import {
   Instagram,
   Globe
 } from 'lucide-react';
+import { getCDNUrl } from '@/lib/cdn';
 
 export default function Footer() {
   const { language } = useLanguage();
@@ -98,7 +99,7 @@ export default function Footer() {
               <Link href="/" className={cn("flex items-center mb-6 group", isRTL ? 'space-x-reverse' : ' space-x-2')}>
                 <div className="relative w-10 h-10">
                   <Image
-                    src="/orbanas-logo.svg"
+                    src={getCDNUrl("/orbanas-logo.svg")}
                     alt="Orbanas Logo"
                     fill
                     className="object-contain transition-transform duration-200 group-hover:scale-105"

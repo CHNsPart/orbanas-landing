@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { ArrowRight, Linkedin, Award, Users } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getCDNUrl } from '@/lib/cdn';
 
 export default function TeamSection() {
   const teamContent = useContent('team');
@@ -104,7 +105,7 @@ export default function TeamSection() {
                   <div className="relative">
                     <div className="h-full w-32 overflow-hidden">
                       <Image
-                        src={member.image}
+                        src={getCDNUrl(member.image)}
                         alt={member.name}
                         width={350}
                         height={368}

@@ -37,7 +37,10 @@ export const metadata: Metadata = {
     "Company Portfolio and Design",
     "Website and Software Saudi Arabia"
   ],
-  authors: [{ name: "Orbanas" }],
+  authors: [{ name: "Touhidul Islam Chayan", url: "https://orbanas.com" }],
+  generator: "Next.js",
+  applicationName: "Orbanas",
+  referrer: "origin-when-cross-origin",
   creator: "Orbanas",
   publisher: "Orbanas",
   formatDetection: {

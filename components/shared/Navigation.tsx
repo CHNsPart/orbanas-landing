@@ -9,6 +9,7 @@ import { useDirection } from '@/hooks/useDirection';
 import LanguageToggle from './LanguageToggle';
 import { cn } from '@/lib/utils';
 import { Menu, X, Sparkles } from 'lucide-react';
+import { getCDNUrl } from '@/lib/cdn';
 
 interface NavigationProps {
   className?: string;
@@ -90,7 +91,7 @@ export default function Navigation({ className }: NavigationProps) {
             aria-label="Orbanas Home"
           >
             <Image
-              src="/orbanas-logo.svg"
+              src={getCDNUrl("/orbanas-logo.svg")}
               alt="Orbanas Logo"
               width={32}
               height={32}

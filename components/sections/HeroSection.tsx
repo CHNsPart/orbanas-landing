@@ -5,44 +5,13 @@ import { useContent } from '@/hooks/useLanguage';
 import { useDirection } from '@/hooks/useDirection';
 import { cn } from '@/lib/utils';
 import { ArrowRight, TrendingUp } from 'lucide-react';
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import VideoBackground from '../ui/VideoBackground';
+import { getCDNUrl } from '@/lib/cdn';
 
 export default function HeroSection() {
   const heroContent = useContent('hero');
   const { flipClassName, isRTL } = useDirection();
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    let isReversing = false;
-
-    const handleTimeUpdate = () => {
-      if (!isReversing && video.currentTime >= video.duration - 0.1) {
-        isReversing = true;
-        video.pause();
-        
-        const reverseInterval = setInterval(() => {
-          if (video.currentTime <= 0.1) {
-            clearInterval(reverseInterval);
-            isReversing = false;
-            video.currentTime = 0;
-            video.play();
-          } else {
-            video.currentTime -= 0.033;
-          }
-        }, 33);
-      }
-    };
-
-    video.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, []);
 
   if (!heroContent) {
     return (
@@ -59,31 +28,17 @@ export default function HeroSection() {
   return (
     <div className="relative h-screen overflow-hidden bg-black">
       
-      {/* High Quality Background Video */}
+      {/* Background Video or Fallback */}
       <div className="absolute inset-0">
-        <video 
-          ref={videoRef}
-          src="/scene/scene-landscape-5s.mp4"
-          autoPlay
-          muted
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover opacity-50 md:opacity-70"
-          style={{ 
-            filter: 'contrast(1.1) brightness(0.9)',
-            WebkitBackfaceVisibility: 'hidden',
-            backfaceVisibility: 'hidden'
-          }}
-          onError={(e) => {
-            console.error('Video failed to load:', e);
-            e.currentTarget.style.display = 'none';
-            const fallbackImg = document.createElement('img');
-            fallbackImg.src = '/scene/scene-square.png';
-            fallbackImg.alt = 'Orbanas 3D Background';
-            fallbackImg.className = 'w-full h-full object-cover opacity-60';
-            e.currentTarget.parentNode?.appendChild(fallbackImg);
-          }}
+        <VideoBackground
+          src={getCDNUrl("/scene/scene-landscape-5s.mp4")}
+          fallbackImage={getCDNUrl("/scene/scene-square.png")}
+          className="opacity-50 md:opacity-70"
+          enableLoop={true}
+          enablePingPong={false}
         />
+        
+        {/* Gradient Overlays */}
         <div className={cn(
           'absolute inset-0',
           isRTL 

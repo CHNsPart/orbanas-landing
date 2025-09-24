@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { ArrowRight, Phone, Shield, Clock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getCDNUrl } from '@/lib/cdn';
 
 export default function CTASection() {
   const ctaContent = useContent('cta');
@@ -88,7 +89,7 @@ export default function CTASection() {
                   className="flex-shrink-0 w-80 h-48 rounded-2xl overflow-hidden bg-muted border border-border shadow-lg hover:shadow-xl transition-all duration-300 group"
                 >
                   <Image
-                    src={project.src}
+                    src={getCDNUrl(project.src)}
                     alt={project.alt}
                     width={320}
                     height={192}
