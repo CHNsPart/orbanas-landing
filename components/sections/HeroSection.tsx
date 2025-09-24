@@ -6,6 +6,7 @@ import { useDirection } from '@/hooks/useDirection';
 import { cn } from '@/lib/utils';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const heroContent = useContent('hero');
@@ -120,7 +121,7 @@ export default function HeroSection() {
 
               {/* Subheadline with modern styling */}
               <div className={cn(
-                'relative',
+                'relative font-mono',
                 isRTL ? 'md:pr-8' : 'md:pl-8'
               )}>
                 <div className={cn(
@@ -136,7 +137,7 @@ export default function HeroSection() {
               <div className={cn(
                 isRTL ? 'md:pr-8' : 'md:pl-8'
               )}>
-                <p className="text-base md:text-lg text-white/70 max-w-2xl font-medium italic">
+                <p className="text-base font-mono md:text-lg text-white/70 max-w-2xl font-medium italic">
                   {`"${heroContent.hook}"`}
                 </p>
               </div>
@@ -149,6 +150,9 @@ export default function HeroSection() {
               )}>
                 <Button  
                   className="bg-primary hover:bg-primary/90 text-white border-0 px-8 md:px-10 py-4 md:py-6 text-base md:text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl relative overflow-hidden group"
+                  onClick={() => {
+                    window.open('https://forms.gle/onMt8N8aufVnEvjy7', '_blank', 'noopener,noreferrer');
+                  }}
                 >
                   <span className="relative z-10 flex items-center">
                     {heroContent.cta.primary}
@@ -162,13 +166,14 @@ export default function HeroSection() {
                     isRTL ? 'origin-right' : 'origin-left'
                   )} />
                 </Button>
-
-                <Button 
-                  variant="ghost" 
-                  className="border-2 border-white/30 text-white hover:text-black hover:bg-white px-8 md:px-10 py-4 md:py-6 text-base md:text-lg transition-all duration-300 backdrop-blur-sm"
-                >
-                  {heroContent.cta.secondary}
-                </Button>
+                <Link href={`/results`}>
+                  <Button 
+                    variant="ghost" 
+                    className="border-2 border-white/30 cursor-pointer text-white hover:text-black hover:bg-white px-8 md:px-10 py-4 md:py-6 text-base md:text-lg transition-all duration-300 backdrop-blur-sm"
+                  >
+                    {heroContent.cta.secondary}
+                  </Button>
+                </Link>
               </div>
 
               {/* Trust Badges - Simplified for mobile */}

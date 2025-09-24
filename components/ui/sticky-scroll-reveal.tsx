@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
@@ -18,7 +18,6 @@ export const StickyScroll = ({
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const [showMobileContent, setShowMobileContent] = useState(false);
-  const [mobileContentHeight, setMobileContentHeight] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const mobileContentRef = useRef<HTMLDivElement>(null);
   
@@ -44,11 +43,11 @@ export const StickyScroll = ({
   });
 
   // Orbanas-themed gradients with primary orange
-  const linearGradients = [
+  const linearGradients = useMemo(() => [
     "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary))/0.8 100%)",
     "linear-gradient(135deg, hsl(var(--primary)) 0%, #f97316 50%, hsl(var(--primary)) 100%)",
     "linear-gradient(135deg, #f97316 0%, hsl(var(--primary)) 50%, #ea580c 100%)",
-  ];
+  ], []);
 
   const [backgroundGradient, setBackgroundGradient] = useState(
     linearGradients[0],
@@ -58,12 +57,6 @@ export const StickyScroll = ({
     setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
   }, [activeCard, linearGradients]);
 
-  // Handle mobile content height measurement
-  useEffect(() => {
-    if (mobileContentRef.current) {
-      setMobileContentHeight(mobileContentRef.current.scrollHeight);
-    }
-  }, [showMobileContent, activeCard]);
 
   // Scroll lock functionality - Alternative approach
   useEffect(() => {
@@ -313,7 +306,7 @@ export const StickyScroll = ({
                   </div>
 
                   {/* Title */}
-                  <motion.h2
+                  <motion.h1
                     initial={{ opacity: 0 }}
                     animate={{
                       opacity: activeCard === index ? 1 : 0.3,
@@ -321,7 +314,7 @@ export const StickyScroll = ({
                     className="text-2xl lg:text-3xl font-bold text-slate-100 leading-tight"
                   >
                     {item.title}
-                  </motion.h2>
+                  </motion.h1>
                   
                   {/* Description */}
                   <motion.p

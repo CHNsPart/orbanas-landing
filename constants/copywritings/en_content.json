@@ -176,12 +176,13 @@
   },
   "cta": {
     "title": "Ready to Stop Playing Vendor Roulette?",
+    "phoneNumber": "+966 57 616 3141",
     "subtitle": "Get Your Free Business Assessment",
     "hook": "In 30 minutes, we'll show you exactly how to solve your 3 biggest business challenges",
     "urgency": "Limited to 10 Saudi companies per month",
     "buttons": {
       "primary": "Book Your Assessment",
-      "secondary": "Call Now: +966 XX XXX XXXX"
+      "secondary": "Call Now: +966 57 616 3141"
     },
     "guarantee": "If we can't identify at least 3 ways to improve your operations, the assessment is free",
     "location": "Orbanas Headquarters, Dammam - Where Saudi success stories begin"
@@ -202,6 +203,35 @@
       "HR & Manpower",
       "Facility Support",
       "Marketing"
+    ]
+  },
+  "team": {
+    "title": "Meet the Leaders Behind Saudi Business Success",
+    "subtitle": "The visionary minds driving Orbanas forward",
+    "description": "Our leadership team combines deep Saudi market expertise with international business acumen to deliver transformational results for our clients.",
+    "members": [
+      {
+        "id": "gm",
+        "name": "Mohammad Anas ",
+        "position": "General Manager",
+        "department": "Executive Leadership",
+        "bio": "Leading Orbanas with 6+ years of experience in Saudi business transformation. Specialized in Aramco compliance and large-scale digital initiatives.",
+        "expertise": ["Strategic Planning", "Aramco Relations", "Business Development", "Market Expansion"],
+        "image": "/team/gm.png",
+        "linkedin": "https://linkedin.com/in/iamohammadanas",
+        "achievements": "Led 200+ successful compliance projects worth SAR 500M+"
+      },
+      {
+        "id": "it-manager", 
+        "name": "Touhidul Islam Chayan",
+        "position": "IT Manager",
+        "department": "Technology Solutions",
+        "bio": "Architecting cutting-edge technology solutions with 7+ years of experience for international enterprises. Expert in cloud migrations, cybersecurity, and Microsoft ecosystems.",
+        "expertise": ["Cloud Architecture", "Cybersecurity", "Microsoft 365", "Digital Transformation"],
+        "image": "/team/it-manager.png",
+        "linkedin": "https://linkedin.com/in/chnspart",
+        "achievements": "Migrated 15,000+ users to cloud with 99.9% uptime"
+      }
     ]
   }
 }

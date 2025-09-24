@@ -16,9 +16,20 @@ interface NavigationProps {
 
 export default function Navigation({ className }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { language } = useLanguage();
   const { flipClassName, isRTL } = useDirection();
   const navContent = useContent('navigation');
+
+  // Handle scroll effect for background blur
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -30,7 +41,15 @@ export default function Navigation({ className }: NavigationProps) {
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        // Offset for sticky header height
+        const headerHeight = 100;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
         setIsOpen(false);
       }
     }
@@ -38,7 +57,7 @@ export default function Navigation({ className }: NavigationProps) {
 
   if (!navContent) {
     return (
-      <header className="absolute top-0 left-0 right-0 z-50">
+      <header className="fixed top-0 left-0 right-0 z-50">
         <div className="flex justify-center pt-6">
           <div className="animate-pulse w-96 h-12 bg-white/10 rounded-full" />
         </div>
@@ -48,14 +67,17 @@ export default function Navigation({ className }: NavigationProps) {
 
   return (
     <header className={cn(
-      'absolute top-0 left-0 right-0 z-50',
+      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
       className
     )}>
       {/* Desktop Navigation - Single Centered Bar */}
       <div className="hidden lg:flex justify-center pt-6 px-6">
         <div className={cn(
-          'flex items-center bg-black/20 backdrop-blur-md rounded-full border border-white/10 px-6 py-3',
-          flipClassName('') // Ensure proper direction for entire nav
+          'flex items-center rounded-full border px-6 py-3 transition-all duration-300',
+          isScrolled 
+            ? 'bg-black/80 backdrop-blur-lg border-white/20 shadow-lg' 
+            : 'bg-black/20 backdrop-blur-md border-white/10',
+          flipClassName('')
         )}>
           
           {/* Logo */}
@@ -112,22 +134,25 @@ export default function Navigation({ className }: NavigationProps) {
           {/* CTA Button */}
           <Button 
             className="bg-white text-black hover:bg-white/90 border-0 px-6 py-2 rounded-full font-medium transition-all duration-200"
-            asChild
+            onClick={() => handleSectionClick('#contact')}
           >
-            <Link href="#contact" className="flex items-center">
+            <span className="flex items-center">
               {navContent.cta}
               <Sparkles className={cn(
                 'w-4 h-4',
                 isRTL ? 'mr-2' : 'ml-2'
               )} />
-            </Link>
+            </span>
           </Button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       <div className={cn(
-        'lg:hidden flex items-center p-6 justify-between'
+        'lg:hidden flex items-center p-6 justify-between transition-all duration-300',
+        isScrolled 
+          ? 'bg-black/80 backdrop-blur-lg border-b border-white/20' 
+          : 'bg-transparent'
       )}>
         
         {/* Mobile Logo */}
@@ -174,7 +199,7 @@ export default function Navigation({ className }: NavigationProps) {
         <div className={cn(
           'lg:hidden absolute top-full left-0 right-0 mt-2 mx-6'
         )}>
-          <div className="bg-black/80 backdrop-blur-lg rounded-2xl border border-white/10 p-6 space-y-4">
+          <div className="bg-black/90 backdrop-blur-lg rounded-2xl border border-white/10 p-6 space-y-4 shadow-2xl">
             
             {/* Mobile Navigation Links */}
             {navContent.links?.map((link: { href: string; label: string }, index: number) => (
@@ -227,4 +252,4 @@ export default function Navigation({ className }: NavigationProps) {
       )}
     </header>
   );
-}
+} 

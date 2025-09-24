@@ -125,12 +125,12 @@ export default function Footer() {
                 
                 <div className={cn('flex items-center', flipClassName(''))}>
                   <Phone className={cn('w-5 h-5 text-primary', isRTL ? 'ml-3' : 'mr-3')} />
-                  <a 
+                  <Link 
                     href={`tel:${companyInfo.phone}`}
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
                     {companyInfo.phone}
-                  </a>
+                  </Link>
                 </div>
                 
                 <div className={cn('flex items-center', flipClassName(''))}>

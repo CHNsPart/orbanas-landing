@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/hooks/useLanguage";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Edgy, modern monospace font
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ['400', '700'],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +27,15 @@ export const metadata: Metadata = {
     "Digital Transformation KSA",
     "IT Solutions Dammam",
     "Microsoft 365 Saudi",
-    "ISO Certification Saudi"
+    "Cloud Migration Riyadh",
+    "Cybersecurity Saudi Arabia",
+    "Business Consulting KSA",
+    "HR Solutions Saudi",
+    "Accounting Services Riyadh",
+    "ISO Certification Saudi",
+    "Marketing Services KSA",
+    "Company Portfolio and Design",
+    "Website and Software Saudi Arabia"
   ],
   authors: [{ name: "Orbanas" }],
   creator: "Orbanas",
@@ -33,7 +45,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://orbanas.sa"),
+  metadataBase: new URL("https://orbanas.com"),
   alternates: {
     canonical: "/",
     languages: {
@@ -44,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Orbanas - Complete Business Solutions | Saudi Arabia",
     description: "Transform your Saudi business with 12 integrated divisions. From Aramco compliance to cloud migration - one partnership, infinite possibilities.",
-    url: "https://orbanas.sa",
+    url: "https://orbanas.com",
     siteName: "Orbanas",
     locale: "en_US",
     alternateLocale: "ar_SA",
@@ -62,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Orbanas - Complete Business Solutions | Saudi Arabia",
     description: "Transform your Saudi business with 12 integrated divisions. One partnership, infinite possibilities.",
-    images: ["/twitter-image.jpg"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -111,7 +123,7 @@ export default function RootLayout({
 
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}
+        className={`${outfit.variable} ${spaceGrotesk.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
         suppressHydrationWarning
       >
         <LanguageProvider defaultLanguage="en">

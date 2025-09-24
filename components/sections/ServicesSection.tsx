@@ -12,7 +12,6 @@ import {
   Shield, 
   ShieldCheck,
   Cloud, 
-  Database, 
   Network,
   Camera,
   Globe,
@@ -20,19 +19,20 @@ import {
   Users,
   Building,
   Paintbrush,
-  Sparkles,
+  Waypoints,
   CheckCircle,
   Zap,
   TrendingUp,
   ExternalLink
 } from 'lucide-react';
+import Link from 'next/link';
 
 // Icon mapping for services
 const iconMap = {
   'shield-check': ShieldCheck,
   'shield': Shield,
   'cloud': Cloud,
-  'database': Database,
+  'database': Waypoints,
   'network': Network,
   'camera': Camera,
   'globe': Globe,
@@ -98,8 +98,8 @@ export default function ServicesSection() {
             
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-              <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30">
-                <IconComponent className="w-7 h-7 text-white" />
+              <div className="size-14 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-white/30">
+                <IconComponent className="size-7 text-white" />
               </div>
               <div className="px-4 py-2 bg-primary rounded-full">
                 <span className="text-white font-bold text-sm">
@@ -110,7 +110,7 @@ export default function ServicesSection() {
 
             {/* Service Title */}
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-white mb-3 leading-tight">
+              <h3 className="font-bold text-white mb-3 leading-tight">
                 {service.title}
               </h3>
               <p className="text-primary font-semibold text-lg mb-3 leading-snug">
@@ -133,7 +133,7 @@ export default function ServicesSection() {
                 
                 {(service.services?.length ?? 0) > 4 && (
                   <div className="flex items-center gap-2 text-primary text-sm font-medium pt-2">
-                    <Sparkles className="w-4 h-4" />
+                    <Waypoints className="w-4 h-4" />
                     <span>+{(service.services?.length ?? 0) - 4} {isRTL ? 'خدمات إضافية' : 'more services'}</span>
                   </div>
                 )}
@@ -142,14 +142,16 @@ export default function ServicesSection() {
 
             {/* Bottom Action */}
             <div className="pt-6 border-t border-white/20">
-              <button className="group w-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-xl px-6 py-4 transition-all duration-300">
-                <div className="flex items-center justify-center gap-2 text-white">
-                  <span className="font-medium">
-                    {isRTL ? 'اعرف المزيد' : 'Learn More'}
-                  </span>
-                  <ExternalLink className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-                </div>
-              </button>
+              <Link href={`/results`}>
+                <button className="group w-full cursor-pointer bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 hover:border-white/50 rounded-xl px-6 py-4 transition-all duration-300">
+                  <div className="flex items-center justify-center gap-2 text-white">
+                      <span className="font-medium">
+                        {isRTL ? 'اعرف المزيد' : 'Learn More'}
+                      </span>
+                    <ExternalLink className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                  </div>
+                </button>
+              </Link>
             </div>
 
             {/* Decorative Elements */}
@@ -177,30 +179,30 @@ export default function ServicesSection() {
         <div className="text-center mb-16 lg:mb-20">
           
           {/* Badge */}
-          <div className="inline-flex items-center px-6 py-3 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-6 hover:bg-primary/15 transition-colors duration-300">
-            <Sparkles className={cn('w-5 h-5 text-primary animate-pulse', isRTL ? 'ml-2' : 'mr-2')} />
+          <div className="font-mono inline-flex items-center px-6 py-3 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-6 hover:bg-primary/15 transition-colors duration-300">
+            <Waypoints className={cn('w-5 h-5 text-primary animate-pulse', isRTL ? 'ml-2' : 'mr-2')} />
             <span className="text-primary font-semibold text-sm">
               {isRTL ? 'خدماتنا المتكاملة' : 'Our Integrated Services'}
             </span>
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 leading-tight">
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-foreground mb-6 leading-tight">
             <span className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
               {servicesContent.title}
             </span>
-          </h2>
+          </h1>
           
           {/* Subtitle */}
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-muted-foreground font-medium font-mono max-w-4xl mx-auto">
             {servicesContent.subtitle}
-          </p>
+          </h2>
         </div>
 
         {/* Stats Bar */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {[
-            { value: '12', label: isRTL ? 'قسم متكامل' : 'Integrated Divisions', icon: Database },
+            { value: '12', label: isRTL ? 'قسم متكامل' : 'Integrated Divisions', icon: Waypoints },
             { value: '500+', label: isRTL ? 'عميل سعودي' : 'Saudi Clients', icon: Users },
             { value: '99.9%', label: isRTL ? 'وقت التشغيل' : 'Uptime', icon: TrendingUp },
             { value: '24/7', label: isRTL ? 'دعم سعودي' : 'Saudi Support', icon: Shield }
@@ -249,21 +251,21 @@ export default function ServicesSection() {
             
             {/* Content */}
             <div className="relative z-10">
-              <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+              <div className="inline-flex items-center justify-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
                 <Zap className={cn('w-5 h-5 text-primary', isRTL ? 'ml-2' : 'mr-2')} />
-                <span className="text-white/90 text-sm font-medium">
+                <span className="text-white/90 text-sm font-mono font-medium">
                   {isRTL ? 'السر في التكامل' : 'The Integration Advantage'}
                 </span>
               </div>
               
-              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
                 {isRTL 
                   ? 'لماذا يختار عملاؤنا التكامل على فوضى الموردين'
                   : 'Why Our Clients Choose Integration Over Vendor Chaos'
                 }
-              </h3>
+              </h2>
               
-              <p className="text-lg text-white/80 mb-8 max-w-3xl mx-auto">
+              <p className="text-md font-mono text-white/80 mb-8 max-w-3xl mx-auto">
                 {isRTL
                   ? 'ما يحدث عندما تعمل جميع الأقسام الـ 12 معاً لنجاحك - بدلاً من محاولة تنسيق 12 مورد مختلف'
                   : 'What happens when all 12 divisions work together for your success - instead of trying to coordinate 12 different vendors'
@@ -294,7 +296,7 @@ export default function ServicesSection() {
                       <benefit.icon className="w-8 h-8 text-white" />
                     </div>
                     <h4 className="text-lg font-bold text-white mb-2">{benefit.title}</h4>
-                    <p className="text-white/70 text-sm">{benefit.desc}</p>
+                    <p className="text-white/70 text-sm font-mono">{benefit.desc}</p>
                   </div>
                 ))}
               </div>
@@ -302,9 +304,12 @@ export default function ServicesSection() {
               {/* CTA */}
               <Button 
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl"
+                className="bg-primary cursor-pointer hover:bg-primary/90 text-white px-8 py-6 text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl"
+                onClick={() => {
+                  window.open('https://forms.gle/onMt8N8aufVnEvjy7', '_blank', 'noopener,noreferrer');
+                }}
               >
-                <Sparkles className={cn(
+                <Waypoints className={cn(
                   'w-5 h-5',
                   isRTL ? 'ml-3' : 'mr-3'
                 )} />

@@ -12,12 +12,14 @@ import {
   CheckCircle
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutSection() {
   const aboutContent = useContent('about');
   const { flipClassName, isRTL } = useDirection();
   const [activeFeature, setActiveFeature] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const ctaContent = useContent('cta');
 
   // Auto-cycle through features
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function AboutSection() {
       className="relative py-20 lg:py-28 bg-background"
       id="about"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Card Container */}
         <div className="bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
@@ -63,7 +65,7 @@ export default function AboutSection() {
             
             {/* Left Side - Badges */}
             <div className={cn(
-              'flex flex-wrap gap-3 mb-6 lg:mb-0',
+              'flex flex-wrap gap-3 mb-6 lg:mb-0 font-mono',
               flipClassName('')
             )}>
               <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
@@ -82,18 +84,20 @@ export default function AboutSection() {
             </div>
 
             {/* Right Side - CTA Link */}
-            <button className={cn(
-              'group inline-flex items-center text-white/70 hover:text-white transition-colors duration-300',
-              flipClassName('')
-            )}>
-              <span className="text-sm font-medium underline decoration-white/30 underline-offset-4 group-hover:decoration-white/60 transition-colors duration-300">
-                {isRTL ? 'اكتشف أعمالنا' : 'View Our Work'}
-              </span>
-              <ArrowRight className={cn(
-                'w-4 h-4 transition-transform duration-300 group-hover:translate-x-1',
-                isRTL ? 'mr-2 rotate-180' : 'ml-2'
-              )} />
-            </button>
+            <Link href={'/results'}>
+              <button className={cn(
+                'group font-mono cursor-pointer inline-flex items-center text-white/70 hover:text-white transition-colors duration-300',
+                flipClassName('')
+              )}>
+                <span className="text-sm font-medium underline decoration-white/30 underline-offset-4 group-hover:decoration-white/60 transition-colors duration-300">
+                  {isRTL ? 'اكتشف أعمالنا' : 'View Our Work'}
+                </span>
+                <ArrowRight className={cn(
+                  'w-4 h-4 transition-transform duration-300 group-hover:translate-x-1',
+                  isRTL ? 'mr-2 rotate-180' : 'ml-2'
+                )} />
+              </button>
+            </Link>
           </div>
 
           {/* Main Content Grid */}
@@ -104,15 +108,15 @@ export default function AboutSection() {
               
               {/* Main Headline */}
               <div className="space-y-6">
-                <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight">
+                <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
                   {aboutContent.title}
-                </h2>
+                </h1>
                 
-                <p className="text-xl lg:text-2xl text-white/80 font-medium leading-relaxed">
+                <p className="text-xl lg:text-2xl font-mono text-white/80 font-medium leading-relaxed">
                   {aboutContent.subtitle}
                 </p>
                 
-                <p className="text-lg text-white/70 leading-relaxed max-w-2xl">
+                <p className="text-md font-mono text-white/70 leading-relaxed max-w-2xl">
                   {aboutContent.description}
                 </p>
               </div>
@@ -296,26 +300,30 @@ export default function AboutSection() {
             'relative z-10 flex flex-col sm:flex-row items-center gap-4 mt-12 pt-8 border-t border-white/10',
             flipClassName('justify-center lg:justify-start')
           )}>
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-base font-bold transition-all duration-300 hover:scale-105 shadow-xl"
-            >
-              <span className="flex items-center">
-                {isRTL ? 'اكتشف حلولنا' : 'Discover Our Solutions'}
-                <ArrowRight className={cn(
-                  'w-5 h-5 transition-transform duration-300 group-hover:translate-x-1',
-                  isRTL ? 'mr-3 rotate-180' : 'ml-3'
-                )} />
-              </span>
-            </Button>
+            <Link href={'/results'}>
+              <Button 
+                size="lg"
+                className="bg-primary cursor-pointer hover:bg-primary/90 text-white px-8 py-6 text-base font-bold transition-all duration-300 hover:scale-105 shadow-xl"
+              >
+                <span className="flex items-center">
+                  {isRTL ? 'اكتشف حلولنا' : 'Discover Our Solutions'}
+                  <ArrowRight className={cn(
+                    'w-5 h-5 transition-transform duration-300 group-hover:translate-x-1',
+                    isRTL ? 'mr-3 rotate-180' : 'ml-3'
+                  )} />
+                </span>
+              </Button>
+            </Link>
             
-            <Button 
-              variant="ghost" 
-              size="lg"
-              className="text-white/80 hover:text-white hover:bg-white/10 px-8 py-6 text-base font-semibold"
-            >
-              {isRTL ? 'تحدث مع خبير' : 'Speak with Expert'}
-            </Button>
+            <Link href={`tel:${ctaContent.phoneNumber}`}>
+              <Button 
+                variant="ghost" 
+                size="lg"
+                className="text-white/80 cursor-pointer hover:text-white hover:bg-white/10 px-8 py-6 text-base font-semibold"
+              >
+                {isRTL ? 'تحدث مع خبير' : 'Speak with Expert'}
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
