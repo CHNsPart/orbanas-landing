@@ -26,7 +26,6 @@ export default function Home() {
     videos: [
       '/scene/scene-landscape-5s.mp4'
     ],
-    minLoadTime: 2000 // 2 seconds minimum
   });
 
   const handleLoaderComplete = () => {
@@ -35,7 +34,7 @@ export default function Home() {
 
   // Show loader while resources are loading
   if (showLoader || isLoading) {
-    return <LogoLoader onComplete={handleLoaderComplete} minDisplayTime={2000} />;
+    return <LogoLoader onComplete={handleLoaderComplete} />;
   }
 
   return (

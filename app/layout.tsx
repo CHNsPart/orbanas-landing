@@ -109,13 +109,14 @@ export default function RootLayout({
         
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/orbanas-logo.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Theme color for mobile browsers */}
         <meta name="theme-color" content="#F28111" />
         <meta name="msapplication-TileColor" content="#F28111" />
+        <meta name="apple-mobile-web-app-title" content="Orbanas" />
         
         {/* Viewport for responsive design */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />

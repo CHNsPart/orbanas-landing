@@ -302,13 +302,19 @@
 
 /* Responsive typography */
 @media (max-width: 640px) {
-  h1 { @apply text-2xl; }
-  h2 { @apply text-xl; }
-  h3 { @apply text-lg; }
+  h1 { @apply text-4xl; }  /* Increased from text-3xl */
+  h2 { @apply text-2xl; }  /* Increased from text-xl */
+  h3 { @apply text-xl; }   /* Increased from text-lg */
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  h1 { @apply text-5xl; }  /* Added tablet breakpoint */
+  h2 { @apply text-3xl; }
+  h3 { @apply text-2xl; }
 }
 
 @media (min-width: 1024px) {
-  h1 { @apply text-4xl; }
-  h2 { @apply text-3xl; }
-  h3 { @apply text-2xl; }
+  h1 { @apply text-6xl; }  /* Increased from text-4xl */
+  h2 { @apply text-4xl; }  /* Increased from text-3xl */
+  h3 { @apply text-3xl; }  /* Increased from text-2xl */
 }

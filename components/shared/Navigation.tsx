@@ -94,6 +94,7 @@ export default function Navigation({ className }: NavigationProps) {
               alt="Orbanas Logo"
               width={32}
               height={32}
+              quality={100}
               className="object-contain"
               priority
             />
