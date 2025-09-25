@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils';
 import { ArrowRight, TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 import VideoBackground from '../ui/VideoBackground';
-import { getCDNUrl } from '@/lib/cdn';
 
 export default function HeroSection() {
   const heroContent = useContent('hero');
@@ -31,8 +30,8 @@ export default function HeroSection() {
       {/* Background Video or Fallback */}
       <div className="absolute inset-0">
         <VideoBackground
-          src={getCDNUrl("/scene/scene-landscape-5s.mp4")}
-          fallbackImage={getCDNUrl("/scene/scene-square.png")}
+          src={"/scene/scene-landscape-5s.mp4"}
+          fallbackImage={"/scene/scene-square.png"}
           className="opacity-50 md:opacity-70"
           enableLoop={true}
           enablePingPong={false}

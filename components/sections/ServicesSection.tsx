@@ -26,7 +26,6 @@ import {
   ExternalLink
 } from 'lucide-react';
 import Link from 'next/link';
-import { getCDNUrl } from '@/lib/cdn';
 
 // Icon mapping for services
 const iconMap = {
@@ -81,14 +80,14 @@ export default function ServicesSection() {
           {/* Background Image - Dynamic per service */}
           <div className="absolute inset-0">
             <Image
-              src={getCDNUrl(serviceImagePath)}
+              src={serviceImagePath}
               alt={service.title}
               fill
               className="object-cover"
               onError={(e) => {
                 // Fallback to default image if specific service image doesn't exist
                 const target = e.target as HTMLImageElement;
-                target.src = getCDNUrl('/services/1.png');
+                target.src = '/services/1.png';
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />

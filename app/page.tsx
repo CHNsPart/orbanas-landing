@@ -10,7 +10,6 @@ import CTASection from "@/components/sections/CTASection";
 import TeamSection from "@/components/sections/TeamSection";
 import LogoLoader from "@/components/ui/LogoLoader";
 import { useResourceLoader } from "@/hooks/useResourceLoader";
-import { getCDNUrl } from "@/lib/cdn";
 
 export default function Home() {
   const [showLoader, setShowLoader] = useState(true);
@@ -18,14 +17,14 @@ export default function Home() {
   // Preload critical resources from CDN
   const { isLoading } = useResourceLoader({
     images: [
-      getCDNUrl('/scene/scene-square.png'),
-      getCDNUrl('/scene/scene-landscape.png'),
-      getCDNUrl('/orbanas-logo.svg'),
-      getCDNUrl('/team/g-manager.png'),
-      getCDNUrl('/team/it-manager.png')
+      '/scene/scene-square.png',
+      '/scene/scene-landscape.png',
+      '/orbanas-logo.svg',
+      '/team/g-manager.png',
+      '/team/it-manager.png'
     ],
     videos: [
-      getCDNUrl('/scene/scene-landscape-5s.mp4')
+      '/scene/scene-landscape-5s.mp4'
     ],
     minLoadTime: 2000 // 2 seconds minimum
   });

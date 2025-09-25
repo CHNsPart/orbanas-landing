@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getCDNUrl } from '@/lib/cdn';
 
 export default function AboutSection() {
   const aboutContent = useContent('about');
@@ -249,7 +248,7 @@ export default function AboutSection() {
                     {/* Bottom Metrics */}
                     <div className="relative flex justify-center items-center z-10 w-full gap-4">
                       <Image
-                        src={getCDNUrl('/scene/scene-landscape.png')}
+                        src={'/scene/scene-landscape.png'}
                         alt="Target Icon"
                         width={500}
                         height={200}
